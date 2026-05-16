@@ -44,7 +44,7 @@
 
     .link-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
       margin-top: 24px;
     }
@@ -78,6 +78,15 @@
       box-shadow: 0 14px 26px rgba(124, 58, 237, 0.27);
     }
 
+    .feature-link.tertiary {
+      background: #1d4ed8;
+      box-shadow: 0 10px 22px rgba(29, 78, 216, 0.2);
+    }
+
+    .feature-link.tertiary:hover {
+      box-shadow: 0 14px 26px rgba(29, 78, 216, 0.27);
+    }
+
     .footer {
       margin-top: 32px;
       font-size: 0.9rem;
@@ -100,6 +109,7 @@
       <div class="link-grid">
         <a class="feature-link" href="ai-history.html">View the OpenAI history infographic</a>
         <a class="feature-link secondary" href="retrievers.html">Meet the retriever dog breeds</a>
+        <a class="feature-link tertiary" href="worcester-birmingham-canal.html">Explore the Worcester &amp; Birmingham Canal</a>
       </div>
     </section>
 
