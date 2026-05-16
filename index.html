@@ -42,9 +42,18 @@
       color: #4b5563;
     }
 
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
     .feature-link {
-      display: inline-block;
-      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
       padding: 13px 18px;
       border-radius: 999px;
       background: #0f766e;
@@ -60,10 +69,25 @@
       box-shadow: 0 14px 26px rgba(15, 118, 110, 0.28);
     }
 
+    .feature-link.secondary {
+      background: #7c3aed;
+      box-shadow: 0 10px 22px rgba(124, 58, 237, 0.2);
+    }
+
+    .feature-link.secondary:hover {
+      box-shadow: 0 14px 26px rgba(124, 58, 237, 0.27);
+    }
+
     .footer {
       margin-top: 32px;
       font-size: 0.9rem;
       color: #6b7280;
+    }
+
+    @media (max-width: 640px) {
+      .link-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -73,7 +97,10 @@
       <h1>Welcome to KevinpSB</h1>
       <p>This is a simple landing page for my website.</p>
       <p>More content will be added here soon.</p>
-      <a class="feature-link" href="ai-history.html">View the OpenAI history infographic</a>
+      <div class="link-grid">
+        <a class="feature-link" href="ai-history.html">View the OpenAI history infographic</a>
+        <a class="feature-link secondary" href="retrievers.html">Meet the retriever dog breeds</a>
+      </div>
     </section>
 
     <footer class="footer">
