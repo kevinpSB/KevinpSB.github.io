@@ -1,29 +1,376 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en-GB">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.5">
-  <style type="text/css">
-    body {background-color: #f1f4f6}
-    p.p2 {margin: 0.0px 0.0px 13.2px 0.0px; text-align: center; font: 13.2px Arial; color: #3b4350; -webkit-text-stroke: #3b4350}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px Arial; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #1634cf}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 10.8px Arial; color: #585e6d; -webkit-text-stroke: #585e6d}
-    span.s1 {font-kerning: none; background-color: #ffffff}
-    span.s2 {font-kerning: none; background-color: #13645b}
-    span.s3 {font-kerning: none; color: #1a1a1a; background-color: #ffffff; -webkit-text-stroke: 0px #1a1a1a}
-    span.s4 {font-kerning: none; color: #ffffff; background-color: #6715e8; -webkit-text-stroke: 0px #ffffff}
-    span.s5 {font-kerning: none; color: #ffffff; background-color: #1634cf; -webkit-text-stroke: 0px #ffffff}
-    span.s6 {font-kerning: none}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KevinpSB Website</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5f6b7a;
+      --paper: #f4f6f8;
+      --panel: #ffffff;
+      --line: #d8dee8;
+      --teal: #0f766e;
+      --violet: #7c3aed;
+      --blue: #1d4ed8;
+      --shadow: 0 18px 50px rgba(23, 32, 51, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 30rem),
+        radial-gradient(circle at top right, rgba(29, 78, 216, 0.10), transparent 28rem),
+        var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 32px 0 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 44px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: #111827;
+      color: white;
+      box-shadow: 0 10px 22px rgba(17, 24, 39, 0.2);
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .top-nav a,
+    .footer-nav a {
+      text-decoration: none;
+      font-weight: 700;
+      color: #374151;
+    }
+
+    .top-nav a {
+      padding: 9px 12px;
+      border: 1px solid rgba(95, 107, 122, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(520px, 1.1fr);
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 34px;
+    }
+
+    .intro {
+      padding: clamp(30px, 5vw, 58px);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 16px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #e8f5f2;
+      color: #075d56;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.95;
+      color: #111827;
+    }
+
+    .lead {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.26rem);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      min-height: 420px;
+      padding: 24px;
+      border-radius: 8px;
+      border: 1px solid rgba(23, 32, 51, 0.14);
+      color: white;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 58px rgba(23, 32, 51, 0.18);
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -20% -30% 15%;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .feature-card.ai {
+      background: linear-gradient(145deg, #0f766e 0%, #164e63 100%);
+    }
+
+    .feature-card.dogs {
+      background: linear-gradient(145deg, #7c3aed 0%, #4c1d95 100%);
+    }
+
+    .feature-card.canal {
+      background: linear-gradient(145deg, #1d4ed8 0%, #0f3557 100%);
+    }
+
+    .feature-kicker,
+    .feature-card h2,
+    .feature-card p,
+    .feature-action {
+      position: relative;
+    }
+
+    .feature-kicker {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      opacity: 0.82;
+    }
+
+    .feature-card h2 {
+      margin: 12px 0;
+      font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+      line-height: 1.08;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.98rem;
+    }
+
+    .feature-action {
+      width: fit-content;
+      margin-top: 24px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      font-weight: 800;
+    }
+
+    .site-footer {
+      margin-top: auto;
+      padding-top: 34px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 0 0;
+      border-top: 1px solid rgba(95, 107, 122, 0.24);
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px 18px;
+    }
+
+    .footer-nav a {
+      color: var(--muted);
+    }
+
+    .footer-nav a:hover {
+      color: var(--ink);
+    }
+
+    @media (max-width: 1040px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 24px, 1180px);
+        padding-top: 22px;
+      }
+
+      .site-header,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .top-nav,
+      .footer-nav {
+        justify-content: flex-start;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        min-height: 250px;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .top-nav,
+      .footer-nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .top-nav a,
+      .footer-nav a {
+        display: block;
+      }
+
+      .footer-inner {
+        gap: 14px;
+      }
+    }
   </style>
 </head>
 <body>
-<h1 style="margin: 0.0px 0.0px 19.3px 0.0px; text-align: center; font: 28.8px Arial; color: #181e2a; -webkit-text-stroke: #181e2a"><span class="s1"><b>Welcome to Kevinp</b><b></b></span></h1>
-<p class="p2"><span class="s1">This is a simple landing page for my website.</span></p>
-<p class="p2"><span class="s1">More content will be added here soon.</span></p>
-<p class="p3"><span class="s2"><a href="file:///Users/kevin/Library/Mobile%20Documents/com~apple~CloudDocs/Website/KevinpSB.github.io/ai-history.html"><b>View the OpenAI history infographic</b></a></span><span class="s3"> <a href="file:///Users/kevin/Library/Mobile%20Documents/com~apple~CloudDocs/Website/KevinpSB.github.io/retrievers.html"><span class="s4"><b>Meet the retriever dog breeds</b></span></a> <a href="file:///Users/kevin/Library/Mobile%20Documents/com~apple~CloudDocs/Website/KevinpSB.github.io/worcester-birmingham-canal.html"><span class="s5"><b>Explore the Worcester &amp; Birmingham Canal</b><b></b></span></a></span></p>
-<p class="p4"><span class="s6">© 2026 KevinpSB</span></p>
+  <div class="page">
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span>KevinpSB</span>
+      </div>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="ai-history.html">OpenAI history</a>
+        <a href="retrievers.html">Retrievers</a>
+        <a href="worcester-birmingham-canal.html">Canal history</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow">Small web experiments</p>
+          <h1 id="page-title">Welcome to KevinpSB</h1>
+          <p class="lead">A growing collection of compact pages: visual explainers, local history, and curious subjects worth giving a proper little corner of the web.</p>
+        </div>
+
+        <div class="feature-grid" aria-label="Featured pages">
+          <a class="feature-card ai" href="ai-history.html">
+            <div>
+              <span class="feature-kicker">Infographic</span>
+              <h2>OpenAI history</h2>
+              <p>A timeline of major AI milestones, from early GPT research to multimodal and reasoning systems.</p>
+            </div>
+            <span class="feature-action">View page</span>
+          </a>
+
+          <a class="feature-card dogs" href="retrievers.html">
+            <div>
+              <span class="feature-kicker">Dog guide</span>
+              <h2>Retriever breeds</h2>
+              <p>A photo-led guide to Labradors, Goldens, Tollers, Chesapeakes, Flat-Coats, and Curlies.</p>
+            </div>
+            <span class="feature-action">View page</span>
+          </a>
+
+          <a class="feature-card canal" href="worcester-birmingham-canal.html">
+            <div>
+              <span class="feature-kicker">Local history</span>
+              <h2>Worcester &amp; Birmingham Canal</h2>
+              <p>The canal story from Birmingham to Worcester, anchored by Diglis and the River Severn.</p>
+            </div>
+            <span class="feature-action">View page</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>&copy; 2026 KevinpSB</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="ai-history.html">OpenAI history</a>
+          <a href="retrievers.html">Retrievers</a>
+          <a href="worcester-birmingham-canal.html">Canal history</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
