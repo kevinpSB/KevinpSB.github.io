@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History of the Worcester & Birmingham Canal</title>
+  <style>
+    :root {
+      --ink: #17222c;
+      --muted: #5f6e7a;
+      --paper: #f3f0e8;
+      --panel: #ffffff;
+      --line: #1d2b36;
+      --water: #276a8f;
+      --deep: #12364c;
+      --brick: #a44f35;
+      --reed: #668348;
+      --cream: #fff8e8;
+      --shadow: 0 18px 50px rgba(29, 43, 54, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(39, 106, 143, 0.18), transparent 420px),
+        linear-gradient(90deg, rgba(102, 131, 72, 0.1), transparent 34rem),
+        var(--paper);
+      line-height: 1.55;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 38px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 850;
+    }
+
+    .mark {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--line);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--water);
+      color: #fff;
+      box-shadow: 4px 4px 0 var(--line);
+      font-weight: 900;
+    }
+
+    .home-link {
+      text-decoration: none;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: var(--panel);
+      font-weight: 750;
+      box-shadow: 4px 4px 0 var(--line);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .home-link:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--line);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 34px;
+    }
+
+    .hero-copy {
+      min-height: 520px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--cream) 100%);
+      box-shadow: var(--shadow);
+      padding: clamp(28px, 5vw, 58px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #dff0f5;
+      color: var(--deep);
+      font-size: 0.82rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 16px;
+      font-size: clamp(2.55rem, 6vw, 5.75rem);
+      line-height: 0.96;
+    }
+
+    .intro {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+    }
+
+    .hero-photo {
+      min-height: 520px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 440px;
+      object-fit: cover;
+    }
+
+    .caption {
+      border-top: 2px solid var(--line);
+      padding: 12px 14px;
+      color: var(--muted);
+      background: var(--panel);
+      font-size: 0.86rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 42px;
+    }
+
+    .stat {
+      min-height: 126px;
+      padding: 20px;
+      border-right: 2px solid var(--line);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat b {
+      display: block;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin: 0 0 20px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 1;
+    }
+
+    .section-title p {
+      max-width: 430px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .route {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 42px;
+    }
+
+    .route-stop {
+      min-height: 168px;
+      padding: 18px;
+      border-right: 2px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .route-stop:last-child {
+      border-right: 0;
+    }
+
+    .route-stop strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .route-stop span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .dot {
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--line);
+      border-radius: 50%;
+      background: var(--water);
+      box-shadow: 3px 3px 0 var(--line);
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      margin-bottom: 42px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 18px;
+      bottom: 18px;
+      width: 4px;
+      background: var(--line);
+      transform: translateX(-50%);
+      border-radius: 999px;
+    }
+
+    .milestone {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 82px 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .milestone:nth-child(even) .story-card {
+      grid-column: 3;
+    }
+
+    .milestone:nth-child(even) .year {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .story-card {
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 20px;
+      box-shadow: 8px 8px 0 rgba(29, 43, 54, 0.12);
+    }
+
+    .story-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+
+    .story-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: #dff0f5;
+      color: var(--deep);
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .year {
+      width: 82px;
+      height: 82px;
+      border: 2px solid var(--line);
+      border-radius: 50%;
+      background: var(--brick);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      z-index: 1;
+      box-shadow: 4px 4px 0 var(--line);
+    }
+
+    .image-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-bottom: 42px;
+    }
+
+    .image-card,
+    .sources {
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .image-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: 2px solid var(--line);
+      background: #dce6e9;
+    }
+
+    .image-card div {
+      padding: 18px;
+    }
+
+    .image-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.22rem;
+    }
+
+    .image-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .sources {
+      padding: 24px;
+      background: #132938;
+      color: #fff;
+    }
+
+    .sources h2 {
+      font-size: clamp(1.45rem, 3vw, 2.25rem);
+      margin-bottom: 14px;
+    }
+
+    .sources p {
+      margin: 0 0 16px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .sources ul {
+      margin: 0;
+      padding-left: 20px;
+      columns: 2;
+    }
+
+    .sources li {
+      break-inside: avoid;
+      margin: 0 0 9px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .sources a {
+      color: #ffe08a;
+    }
+
+    @media (max-width: 930px) {
+      .hero,
+      .stats,
+      .route,
+      .image-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stat,
+      .route-stop {
+        border-right: 0;
+        border-bottom: 2px solid var(--line);
+      }
+
+      .stat:last-child,
+      .route-stop:last-child {
+        border-bottom: 0;
+      }
+
+      .timeline::before {
+        left: 41px;
+      }
+
+      .milestone,
+      .milestone:nth-child(even) {
+        grid-template-columns: 82px 1fr;
+      }
+
+      .milestone .story-card,
+      .milestone:nth-child(even) .story-card {
+        grid-column: 2;
+      }
+
+      .milestone .year,
+      .milestone:nth-child(even) .year {
+        grid-column: 1;
+        grid-row: 1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, 1180px);
+        padding-top: 18px;
+      }
+
+      .topbar,
+      .section-title {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-copy,
+      .hero-photo {
+        min-height: 0;
+      }
+
+      .hero-photo img {
+        min-height: 280px;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .milestone,
+      .milestone:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+
+      .milestone .story-card,
+      .milestone:nth-child(even) .story-card,
+      .milestone .year,
+      .milestone:nth-child(even) .year {
+        grid-column: 1;
+      }
+
+      .year {
+        width: auto;
+        height: auto;
+        border-radius: 999px;
+        padding: 10px 14px;
+        justify-self: start;
+      }
+
+      .sources ul {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand"><span class="mark" aria-hidden="true">W</span> KevinpSB</div>
+      <a class="home-link" href="index.html">Back to home</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <span class="eyebrow">Birmingham to Worcester</span>
+          <h1 id="page-title">The canal that cut across the Midlands</h1>
+          <p class="intro">The Worcester &amp; Birmingham Canal was built to give Birmingham a shorter route to the River Severn. Your photo shows the quiet modern face of that story: the pound between locks one and two at Diglis, just above the point where the canal reaches Worcester and the river.</p>
+        </div>
+        <figure class="hero-photo">
+          <img src="assets/diglis-locks-kevin.jpg" alt="Narrowboats in the pound between locks one and two at Diglis, Worcester">
+          <figcaption class="caption">Photo: Kevin, pound between locks one and two at Diglis, Worcester, 15 May 2026.</figcaption>
+        </figure>
+      </section>
+
+      <section class="stats" aria-label="Canal summary">
+        <div class="stat"><b>1791</b><span>Act of Parliament authorised the canal.</span></div>
+        <div class="stat"><b>1815</b><span>Opened throughout from Birmingham to Worcester.</span></div>
+        <div class="stat"><b>30</b><span>Miles between the River Severn and Worcester Bar.</span></div>
+        <div class="stat"><b>58</b><span>Total locks, most packed into the Worcestershire descent.</span></div>
+      </section>
+
+      <section aria-labelledby="route-title">
+        <div class="section-title">
+          <h2 id="route-title">The Route</h2>
+          <p>A canal journey from industry to river: Birmingham's wharves, long tunnels, the Tardebigge summit, and the fall into Worcester.</p>
+        </div>
+        <div class="route">
+          <div class="route-stop">
+            <div class="dot" aria-hidden="true"></div>
+            <div><strong>Gas Street Basin</strong><span>Birmingham terminus, separated for years by Worcester Bar.</span></div>
+          </div>
+          <div class="route-stop">
+            <div class="dot" aria-hidden="true"></div>
+            <div><strong>King's Norton</strong><span>Junction country, tunnels, and water-control engineering.</span></div>
+          </div>
+          <div class="route-stop">
+            <div class="dot" aria-hidden="true"></div>
+            <div><strong>Tardebigge</strong><span>The summit and Britain's longest continuous lock flight.</span></div>
+          </div>
+          <div class="route-stop">
+            <div class="dot" aria-hidden="true"></div>
+            <div><strong>Hanbury and Stoke Prior</strong><span>Salt, wharves, reservoirs, and rural canal industry.</span></div>
+          </div>
+          <div class="route-stop">
+            <div class="dot" aria-hidden="true"></div>
+            <div><strong>Diglis, Worcester</strong><span>Basins and broad locks connect the canal to the Severn.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="timeline-title">
+        <div class="section-title">
+          <h2 id="timeline-title">How It Was Built</h2>
+          <p>The canal looks peaceful today, but its construction was a long contest between water supply, money, engineering, and rival canal interests.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="milestone">
+            <div class="story-card">
+              <span class="tag">The plan</span>
+              <h3>A shorter road to the Severn</h3>
+              <p>The canal was promoted to link Birmingham directly with Worcester and the River Severn, avoiding longer existing routes and giving Midlands goods a faster way towards the Bristol Channel.</p>
+            </div>
+            <div class="year">1791</div>
+          </article>
+
+          <article class="milestone">
+            <div class="story-card">
+              <span class="tag">Slow progress</span>
+              <h3>Building began from Birmingham</h3>
+              <p>Construction moved south from Birmingham. The early design was for a broad canal, which is why the first tunnels were made wide enough for larger boats.</p>
+            </div>
+            <div class="year">1790s</div>
+          </article>
+
+          <article class="milestone">
+            <div class="story-card">
+              <span class="tag">Water politics</span>
+              <h3>Worcester Bar kept the canals apart</h3>
+              <p>At Gas Street Basin, the Birmingham Canal Navigations resisted a free-flowing connection. Worcester Bar kept the waterways physically separate so water could not simply drain from one company to the other.</p>
+            </div>
+            <div class="year">1800s</div>
+          </article>
+
+          <article class="milestone">
+            <div class="story-card">
+              <span class="tag">Engineering gamble</span>
+              <h3>Tardebigge tested a vertical boat lift</h3>
+              <p>The company worried about the cost and water use of the long fall towards Worcester. An experimental lift at Tardebigge worked briefly, but it was judged too fragile and replaced by conventional locks.</p>
+            </div>
+            <div class="year">1808</div>
+          </article>
+
+          <article class="milestone">
+            <div class="story-card">
+              <span class="tag">Completion</span>
+              <h3>The canal opened throughout</h3>
+              <p>The full route finally opened in 1815. Financial pressure meant the southern section from Tardebigge to Worcester was built for narrow boats, even though the original ambition had been broader.</p>
+            </div>
+            <div class="year">1815</div>
+          </article>
+
+          <article class="milestone">
+            <div class="story-card">
+              <span class="tag">Trade</span>
+              <h3>Coal, salt, chocolate, and city industry</h3>
+              <p>Traffic included coal for Worcester and canalside industries. Salt found while cutting the canal at Stoke Prior became important, and later chocolate crumb travelled between Worcester and Bournville.</p>
+            </div>
+            <div class="year">1800s</div>
+          </article>
+
+          <article class="milestone">
+            <div class="story-card">
+              <span class="tag">Decline</span>
+              <h3>Railways took the heavy trade</h3>
+              <p>From the 1840s railway competition reduced canal business. The waterway survived ownership changes, nationalisation, and the end of regular commercial traffic in the early 1960s.</p>
+            </div>
+            <div class="year">1841+</div>
+          </article>
+
+          <article class="milestone">
+            <div class="story-card">
+              <span class="tag">Today</span>
+              <h3>Diglis is a leisure gateway</h3>
+              <p>The working boats have mostly given way to narrowboats, walkers, cyclists, and heritage interest. At Diglis, two broad locks still lead down to the River Severn.</p>
+            </div>
+            <div class="year">Now</div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="places-title">
+        <div class="section-title">
+          <h2 id="places-title">Two Key Places</h2>
+          <p>Open-source images help show the canal's two symbolic ends: the guarded Birmingham connection and the engineering challenge at Tardebigge.</p>
+        </div>
+        <div class="image-row">
+          <article class="image-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gas%20Street%20Basin%20Worcester%20Bar.jpg?width=1000" alt="Gas Street Basin and Worcester Bar in Birmingham">
+            <div>
+              <h3>Worcester Bar, Birmingham</h3>
+              <p>For years this barrier made boats transfer cargo across a physical divide rather than pass freely between canal companies.</p>
+            </div>
+          </article>
+          <article class="image-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Worcester%20and%20Birmingham%20Canal%20at%20Tardebigge%20Locks%20-%20geograph.org.uk%20-%202265531.jpg?width=1000" alt="Tardebigge Locks on the Worcester and Birmingham Canal">
+            <div>
+              <h3>Tardebigge Locks</h3>
+              <p>The long descent through Worcestershire is the canal's great piece of visible engineering, with 30 locks in the main flight.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Sources and Image Credits</h2>
+        <p>The historical summary is based on Canal &amp; River Trust, Inland Waterways Association, and National Transport Trust material. The Diglis photo is your supplied image; the additional images are Wikimedia Commons files.</p>
+        <ul>
+          <li><a href="https://canalrivertrust.org.uk/canals-and-rivers/worcester-and-birmingham-canal/history-of-the-worcester-and-birmingham-canal">Canal &amp; River Trust: History of the Worcester &amp; Birmingham Canal</a></li>
+          <li><a href="https://canalrivertrust.org.uk/canals-and-rivers/worcester-and-birmingham-canal">Canal &amp; River Trust: Worcester &amp; Birmingham Canal</a></li>
+          <li><a href="https://waterways.org.uk/waterways/discover-the-waterways/worcester-birmingham-canal">Inland Waterways Association: Worcester &amp; Birmingham Canal</a></li>
+          <li><a href="https://www.nationaltransporttrust.org.uk/heritage-sites/heritage-detail/tardebigge-locks">National Transport Trust: Tardebigge Top Lock</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Gas_Street_Basin_Worcester_Bar.jpg">Gas Street Basin Worcester Bar</a> by Oosoom, CC BY-SA 3.0 / GFDL.</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Worcester_and_Birmingham_Canal_at_Tardebigge_Locks_-_geograph.org.uk_-_2265531.jpg">Worcester and Birmingham Canal at Tardebigge Locks</a> by Roger Kidd, CC BY-SA 2.0.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
