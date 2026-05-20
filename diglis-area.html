@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diglis Area History</title>
+  <style>
+    :root {
+      --ink: #17222c;
+      --muted: #5f6e7a;
+      --paper: #f3f0e8;
+      --panel: #ffffff;
+      --line: #1d2b36;
+      --water: #276a8f;
+      --deep: #12364c;
+      --brick: #a44f35;
+      --reed: #668348;
+      --cream: #fff8e8;
+      --shadow: 0 18px 50px rgba(29, 43, 54, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(39, 106, 143, 0.18), transparent 420px),
+        linear-gradient(90deg, rgba(102, 131, 72, 0.1), transparent 34rem),
+        var(--paper);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 38px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 850;
+    }
+
+    .mark {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--line);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--water);
+      color: #fff;
+      box-shadow: 4px 4px 0 var(--line);
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: var(--panel);
+      font-weight: 750;
+      box-shadow: 4px 4px 0 var(--line);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .nav-links a:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--line);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(330px, 1.05fr);
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 34px;
+    }
+
+    .hero-copy,
+    .photo-placeholder,
+    .fact-strip,
+    .story,
+    .sources {
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      min-height: 460px;
+      padding: clamp(28px, 5vw, 58px);
+      background: linear-gradient(135deg, #ffffff 0%, var(--cream) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #dff0f5;
+      color: var(--deep);
+      font-size: 0.82rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 16px;
+      font-size: clamp(2.6rem, 7vw, 5.8rem);
+      line-height: 0.96;
+    }
+
+    .intro {
+      max-width: 640px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+    }
+
+    .photo-placeholder {
+      min-height: 460px;
+      padding: 18px;
+      background:
+        linear-gradient(135deg, rgba(39, 106, 143, 0.16), rgba(164, 79, 53, 0.12)),
+        var(--panel);
+      display: grid;
+      place-items: center;
+    }
+
+    .photo-frame {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      border: 3px dashed rgba(29, 43, 54, 0.45);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .photo-frame strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+    }
+
+    .photo-frame span {
+      color: var(--muted);
+    }
+
+    .fact-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: hidden;
+      margin-bottom: 34px;
+    }
+
+    .fact {
+      min-height: 128px;
+      padding: 20px;
+      border-right: 2px solid var(--line);
+    }
+
+    .fact:last-child {
+      border-right: 0;
+    }
+
+    .fact b {
+      display: block;
+      margin-bottom: 10px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .story {
+      padding: clamp(24px, 4vw, 36px);
+      margin-bottom: 34px;
+    }
+
+    .story h2,
+    .sources h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      line-height: 1;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .story-card {
+      border-top: 2px solid rgba(29, 43, 54, 0.18);
+      padding-top: 18px;
+    }
+
+    .story-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.22rem;
+    }
+
+    .story-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .sources {
+      padding: 24px;
+      background: #132938;
+      color: #fff;
+    }
+
+    .sources p {
+      margin: 0 0 16px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .sources ul {
+      margin: 0;
+      padding-left: 20px;
+      columns: 2;
+    }
+
+    .sources li {
+      break-inside: avoid;
+      margin: 0 0 9px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .sources a {
+      color: #ffe08a;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .fact-strip,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fact {
+        border-right: 0;
+        border-bottom: 2px solid var(--line);
+      }
+
+      .fact:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, 1080px);
+        padding-top: 18px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero-copy,
+      .photo-placeholder {
+        min-height: 0;
+      }
+
+      .photo-frame {
+        min-height: 260px;
+      }
+
+      .sources ul {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand"><span class="mark" aria-hidden="true">D</span> KevinpSB</div>
+      <nav class="nav-links" aria-label="Page navigation">
+        <a href="worcester-birmingham-canal.html">Back to canal page</a>
+        <a href="index.html">Home</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <span class="eyebrow">Diglis, Worcester</span>
+          <h1 id="page-title">Where the canal meets the Severn</h1>
+          <p class="intro">Diglis is the southern river gateway of the Worcester &amp; Birmingham Canal: a place of basins, broad locks, warehouses, river navigation, and later leisure boats at the edge of Worcester.</p>
+        </div>
+        <aside class="photo-placeholder" aria-label="Photo placeholder">
+          <div class="photo-frame">
+            <div>
+              <strong>Photo coming soon</strong>
+              <span>Placeholder frame for a Diglis area image.</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="fact-strip" aria-label="Diglis summary">
+        <div class="fact"><b>1815</b><span>The Worcester &amp; Birmingham Canal opened throughout to Worcester.</span></div>
+        <div class="fact"><b>2</b><span>Wide locks link Diglis Basin with the River Severn.</span></div>
+        <div class="fact"><b>1890s</b><span>The Diglis oil basin added another working waterfront use.</span></div>
+      </section>
+
+      <section class="story" aria-labelledby="history-title">
+        <h2 id="history-title">A Short History</h2>
+        <div class="story-grid">
+          <article class="story-card">
+            <h3>River edge before the canal</h3>
+            <p>Diglis sits by the River Severn just south of Worcester Cathedral. Before the canal era, the river was already the city's great transport route, carrying goods through Worcester and towards the Bristol Channel.</p>
+          </article>
+          <article class="story-card">
+            <h3>The canal arrives</h3>
+            <p>The Worcester &amp; Birmingham Canal was authorised in 1791 and completed in 1815. Its purpose was to give Birmingham a shorter route to the Severn, with Diglis forming the Worcester end of that link.</p>
+          </article>
+          <article class="story-card">
+            <h3>Basins, locks, and trade</h3>
+            <p>Diglis Basin became the meeting point between narrow canal traffic and wider river navigation. Two broad locks allowed river craft to reach the basin, while canal traffic brought coal, salt, and other cargoes into and out of Worcester.</p>
+          </article>
+          <article class="story-card">
+            <h3>From industry to leisure</h3>
+            <p>Later additions, including the Diglis Dock oil basin in the 1890s, show how the waterfront kept adapting. Today the area is better known for moorings, walking routes, the river crossing, and the surviving lock structures.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Sources</h2>
+        <p>This short history uses Canal &amp; River Trust, Inland Waterways Association, Canal &amp; River Trust collection, and Worcester City Council conservation material.</p>
+        <ul>
+          <li><a href="https://canalrivertrust.org.uk/canals-and-rivers/worcester-and-birmingham-canal/history-of-the-worcester-and-birmingham-canal">Canal &amp; River Trust: History of the Worcester &amp; Birmingham Canal</a></li>
+          <li><a href="https://canalrivertrust.org.uk/canals-and-rivers/worcester-and-birmingham-canal">Canal &amp; River Trust: Worcester &amp; Birmingham Canal</a></li>
+          <li><a href="https://waterways.org.uk/waterways/discover-the-waterways/worcester-birmingham-canal">Inland Waterways Association: Worcester &amp; Birmingham Canal</a></li>
+          <li><a href="https://collections.canalrivertrust.org.uk/bw106">Canal &amp; River Trust Collections: Worcester and Birmingham Canal</a></li>
+          <li><a href="https://www.worcester.gov.uk/component/fileman/file/PDF%20Documents/Planning/Conservation%20Area/Riverside-Conservation-Area/Riverside%20Conservation%20Area%20%28Adopted%20version%29%20-%20Accessible.pdf?container=fileman-files&amp;routed=1">Worcester City Council: Riverside Conservation Area Appraisal</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
